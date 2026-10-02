@@ -299,7 +299,7 @@
     <input type="hidden" name="submission_id">
     <input type="hidden" name="submission_timestamp">
     <input type="hidden" name="submission_local_time">
-    <input type="hidden" name="survival_months_actual">
+    <input type="hidden" name="actual_survival_months">
     <input type="hidden" name="survival_text">
     <input type="hidden" name="guess_result">
     <input type="hidden" name="annual_income_used">
@@ -563,7 +563,7 @@
     setHidden('submission_id', uid());
     setHidden('submission_timestamp', now.toISOString());
     setHidden('submission_local_time', now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
-    setHidden('survival_months_actual', c.months.toFixed(2));
+    setHidden('actual_survival_months', c.months.toFixed(2));
     setHidden('survival_text', duration(c.months));
     setHidden('guess_result', c.met ? 'Met or exceeded guess' : 'Short of guess');
     setHidden('annual_income_used', Math.round(c.annualIncome));
