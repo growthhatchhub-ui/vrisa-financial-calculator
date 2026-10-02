@@ -349,8 +349,7 @@
     inside your Netlify dashboard.
   -->
 
-        <form name="financial-snapshot" method="POST" data-netlify="true" data-netlify-honeypot="bot-field"
-            id="financialForm" netlify>
+        <form name="financial-snapshot" method="POST" data-netlify="true" id="financialForm">
 
             <!-- Required for Netlify AJAX submission -->
             <input type="hidden" name="form-name" value="financial-snapshot">
@@ -1041,59 +1040,67 @@
         // FORM SUBMISSION
         // ============================================================
 
+
         async function submitToNetlify() {
 
-            const form = $("financialForm");
+            const form = document.getElementById("financialForm");
 
             const formData = new FormData(form);
 
-            formData.set(
-                "form-name",
-                "financial-snapshot"
-            );
-
-            formData.set(
-                "submission_timestamp",
-                new Date().toISOString()
-            );
+            // IMPORTANT: tell Netlify exactly which form this is
+            formData.set("form-name", "financial-snapshot");
 
             try {
 
-                const response = await fetch(
-                    "/",
-                    {
-                        method: "POST",
+                const response = await fetch("/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+                    body: new URLSearchParams(formData).toString()
+                });
 
-                        headers: {
-                            "Content-Type":
-                                "application/x-www-form-urlencoded"
-                        },
-
-                        body: new URLSearchParams(formData).toString()
-                    }
+                console.log(
+                    "Netlify status:",
+                    response.status
                 );
 
                 console.log(
                     "Netlify response:",
-                    response.status
+                    await response.text()
                 );
 
-                // Netlify has received the POST request.
-                // Don't treat a redirect/non-2xx response as a
-                // calculator failure.
-                return response.status >= 200 &&
-                    response.status < 400;
+                /*
+                 * Netlify may return a redirect after a successful
+                 * form submission. Therefore don't rely only on
+                 * response.ok.
+                 */
+                if (
+                    response.status === 200 ||
+                    response.status === 201 ||
+                    response.status === 202 ||
+                    response.status === 204 ||
+                    response.status === 301 ||
+                    response.status === 302 ||
+                    response.status === 303
+                ) {
+                    return true;
+                }
+
+                return false;
 
             } catch (error) {
 
                 console.error(
-                    "Netlify submission error:",
+                    "NETLIFY FORM ERROR:",
                     error
                 );
 
                 return false;
             }
         }
+
 
         // ============================================================
         // CALCULATE
