@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>If Your Income Stops Today | Vrisa Artha Mantra</title>
+
+    <style>
+        :root {
+            --aqua: #6ACED9;
+            --green: #87A644;
+            --black: #030303;
+            --red: #F23838;
+            --grey: #808180;
+            --bg: #F6FAFB;
+            --card: #FFFFFF;
+            --line: #E3ECEE;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Calibri, "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--black);
+            line-height: 1.5;
+        }
+
+        .wrap {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        header {
+            background: var(--black);
+            color: #fff;
+            border-radius: 14px;
+            padding: 22px 20px;
+            text-align: center;
+        }
+
+        header .brand {
+            font-family: Cambria, Georgia, serif;
+            font-size: 22px;
+            letter-spacing: .5px;
+        }
+
+        header .tag {
+            color: var(--aqua);
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        header h1 {
+            font-family: Cambria, Georgia, serif;
+            font-size: 24px;
+            margin-top: 14px;
+            font-weight: normal;
+        }
+
+        header h1 b {
+            color: var(--aqua);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 18px;
+            margin-top: 14px;
+        }
+
+        .card h2 {
+            font-family: Cambria, Georgia, serif;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        label {
+            font-size: 13px;
+            color: var(--grey);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--aqua);
+        }
+
+        button {
+            margin-top: 12px;
+            width: 100%;
+            padding: 12px;
+            border: 0;
+            border-radius: 8px;
+            background: var(--green);
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: .92;
+        }
+
+        button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        .big {
+            font-size: 42px;
+            font-weight: bold;
+            font-family: Cambria, Georgia, serif;
+        }
+
+        .red {
+            color: var(--red);
+        }
+
+        .green {
+            color: var(--green);
+        }
+
+        .aqua {
+            color: #2a9aa6;
+        }
+
+        .muted {
+            color: var(--grey);
+            font-size: 14px;
+        }
+
+        .compare {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .compare div {
+            flex: 1;
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .compare .v {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .bar {
+            height: 12px;
+            background: var(--line);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            background: var(--red);
+            transition: width .8s;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 15px;
+        }
+
+        th,
+        td {
+            padding: 10px 8px;
+            text-align: right;
+            border-bottom: 1px solid var(--line);
+        }
+
+        th:first-child,
+        td:first-child {
+            text-align: left;
+        }
+
+        th {
+            background: var(--black);
+            color: #fff;
+            font-weight: normal;
+        }
+
+        tr:nth-child(even) td {
+            background: #FAFCFC;
+        }
+
+        .pill {
+            display: inline-block;
+            background: var(--aqua);
+            color: var(--black);
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .cta {
+            background: var(--green);
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: #fff;
+        }
+
+        .disc {
+            font-size: 11.5px;
+            color: var(--grey);
+            margin-top: 14px;
+            text-align: center;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .success {
+            background: #eef8ef;
+            border: 1px solid #c9e4ca;
+            color: #315d34;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 12px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .error {
+            background: #fff1f1;
+            border: 1px solid #f0caca;
+            color: #8a2020;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 12px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .consent {
+            margin-top: 12px;
+            font-size: 11.5px;
+            color: var(--grey);
+            line-height: 1.4;
+        }
+
+        .required {
+            color: var(--red);
+        }
+
+        /*
+    Netlify honeypot.
+    Normal visitors won't see this field.
+  */
+        .bot-field {
+            position: absolute;
+            left: -5000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        @media(max-width:560px) {
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .big {
+                font-size: 34px;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+            .compare {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+
+        <header>
+
+            <div class="brand">
+                VRISA ARTHA MANTRA
+            </div>
+
+            <div class="tag">
+                Money with Wisdom
+            </div>
+
+            <h1>
+                If your income stops <b>today</b>…<br>
+                how long can you survive?
+            </h1>
+
+        </header>
+
+
+        <!--
+    NETLIFY FORM
+
+    Important:
+    data-netlify="true" tells Netlify to detect this form.
+
+    The name "financial-snapshot" becomes the form name
+    inside your Netlify dashboard.
+  -->
+
+        <form name="financial-snapshot" method="POST" data-netlify="true" data-netlify-honeypot="bot-field"
+            id="financialForm">
+
+            <!-- Required for Netlify AJAX submission -->
+            <input type="hidden" name="form-name" value="financial-snapshot">
+
+            <!-- Spam protection -->
+            <div class="bot-field">
+                <label>
+                    Don't fill this out if you're human:
+                    <input name="bot-field" type="text">
+                </label>
+            </div>
+
+
+            <!-- INPUT CARD -->
+
+            <div class="card" id="inputCard">
+
+                <h2>
+                    Your numbers
+                </h2>
+
+                <div class="grid">
+
+
+                    <!-- Lead Owner -->
+
+                    <div>
+
+                        <label>
+                            Lead Owner <span class="required">*</span>
+                        </label>
+
+                        <select id="leadOwner" name="lead_owner" required>
+
+                            <option value="">
+                                Select team member
+                            </option>
+
+                            <option value="Satish">
+                                Satish
+                            </option>
+
+                            <option value="Arati">
+                                Arati
+                            </option>
+
+                            <option value="Rahul">
+                                Rahul
+                            </option>
+
+                            <option value="Kusum">
+                                Kusum
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Full Name -->
+
+                    <div>
+
+                        <label>
+                            Full name <span class="required">*</span>
+                        </label>
+
+                        <input id="name" name="full_name" type="text" placeholder="Your name" required>
+
+                    </div>
+
+
+                    <!-- Phone -->
+
+                    <div>
+
+                        <label>
+                            Phone number <span class="required">*</span>
+                        </label>
+
+                        <input id="phone" name="phone" type="tel" placeholder="e.g. 9876543210" inputmode="numeric"
+                            pattern="[0-9]{10}" maxlength="10" minlength="10" required>
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div>
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input id="email" name="email" type="email" placeholder="you@example.com">
+
+                    </div>
+
+
+                    <!-- Expenses -->
+
+                    <div>
+
+                        <label>
+                            Monthly household expenses (₹)
+                            <span class="required">*</span>
+                        </label>
+
+                        <input id="exp" name="monthly_expenses" type="number" min="0" placeholder="e.g. 80000" required>
+
+                    </div>
+
+
+                    <!-- Income -->
+
+                    <div>
+
+                        <label>
+                            Income (₹)
+                            <span class="required">*</span>
+                        </label>
+
+                        <input id="inc" name="income" type="number" min="0" placeholder="e.g. 200000" required>
+
+                    </div>
+
+
+                    <!-- Income Type -->
+
+                    <div>
+
+                        <label>
+                            Income entered is
+                        </label>
+
+                        <select id="inctype" name="income_type">
+
+                            <option value="Monthly">
+                                Monthly
+                            </option>
+
+                            <option value="Annual">
+                                Annual
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Corpus -->
+
+                    <div>
+
+                        <label>
+                            Savings / corpus available today (₹)
+                        </label>
+
+                        <input id="corpus" name="current_corpus" type="number" min="0" placeholder="e.g. 1500000">
+
+                    </div>
+
+
+                    <!-- Guess -->
+
+                    <div>
+
+                        <label>
+                            How long do you THINK you'd survive?
+                        </label>
+
+                        <select id="guess" name="expected_survival">
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="3">
+                                3 months
+                            </option>
+
+                            <option value="6">
+                                6 months
+                            </option>
+
+                            <option value="12">
+                                1 year
+                            </option>
+
+                            <option value="60">
+                                5 years
+                            </option>
+
+                            <option value="120">
+                                10 years
+                            </option>
+
+                            <option value="9999">
+                                Whole life
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" id="calculateButton">
+                    Show my reality check
+                </button>
+
+
+                <div id="submitMessage" class="hide"></div>
+
+
+                <div class="consent">
+
+                    By continuing, you agree that Vrisa Artha Mantra may
+                    use the details provided for the requested financial-awareness
+                    information and related follow-up communication.
+
+                </div>
+
+            </div>
+
+
+            <!--
+      HIDDEN CALCULATED FIELDS
+
+      These are not shown to the visitor.
+      JavaScript fills them before the Netlify submission.
+    -->
+
+            <input type="hidden" name="actual_survival_months" id="actualSurvival">
+
+            <input type="hidden" name="protection_cover" id="protectionCover">
+
+            <input type="hidden" name="target_corpus" id="targetCorpus">
+
+            <input type="hidden" name="corpus_gap" id="gapValue">
+
+            <input type="hidden" name="sip_5_year" id="sip5">
+
+            <input type="hidden" name="sip_10_year" id="sip10">
+
+            <input type="hidden" name="sip_15_year" id="sip15">
+
+            <input type="hidden" name="sip_20_year" id="sip20">
+
+            <input type="hidden" name="lumpsum_5_year" id="lump5">
+
+            <input type="hidden" name="lumpsum_10_year" id="lump10">
+
+            <input type="hidden" name="lumpsum_15_year" id="lump15">
+
+            <input type="hidden" name="lumpsum_20_year" id="lump20">
+
+            <input type="hidden" name="submission_timestamp" id="submissionTimestamp">
+
+
+            <!-- RESULTS -->
+
+            <div id="results" class="hide">
+
+
+                <!-- LEAD DETAILS -->
+
+                <div class="card" style="padding:14px 18px">
+
+                    <div class="muted">
+                        Prepared for
+                    </div>
+
+                    <div style="font-size:20px;font-weight:bold;font-family:Cambria,Georgia,serif" id="leadName">
+                        –
+                    </div>
+
+                    <div class="muted">
+
+                        📞
+                        <span id="leadPhone">
+                            –
+                        </span>
+
+                        &nbsp;·&nbsp;
+
+                        ✉️
+                        <span id="leadEmail">
+                            –
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SURVIVAL -->
+
+                <div class="card" style="text-align:center">
+
+                    <h2 id="hello">
+                        Your survival runway
+                    </h2>
+
+                    <div class="big red" id="survive">
+                        –
+                    </div>
+
+                    <div class="muted">
+                        is how long your current savings cover your monthly expenses
+                    </div>
+
+
+                    <div class="compare">
+
+                        <div>
+
+                            <div class="muted">
+                                You guessed
+                            </div>
+
+                            <div class="v" id="guessOut">
+                                –
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="muted">
+                                Reality
+                            </div>
+
+                            <div class="v red" id="realOut">
+                                –
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="bar">
+
+                        <span id="barFill" style="width:0"></span>
+
+                    </div>
+
+
+                    <div class="muted" style="margin-top:6px" id="barNote"></div>
+
+                </div>
+
+
+                <!-- FAMILY PROTECTION -->
+
+                <div class="card">
+
+                    <h2>
+                        🛡️ Family protection cover you need
+                    </h2>
+
+                    <div class="big aqua" id="cover">
+                        –
+                    </div>
+
+                    <div class="muted">
+
+                        Illustrative calculation based on annual income × 15.
+                        This is an awareness illustration and not a personalised
+                        insurance recommendation.
+
+                    </div>
+
+                </div>
+
+
+                <!-- FINANCIAL FREEDOM -->
+
+                <div class="card">
+
+                    <h2>
+                        🌱 Survive your expenses for
+                        <u>whole life</u>
+                    </h2>
+
+
+                    <div class="grid">
+
+                        <div>
+
+                            <label>
+                                Corpus needed
+                                (25 × annual expenses)
+                            </label>
+
+                            <div class="big green" style="font-size:28px" id="target">
+                                –
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Gap after your current savings
+                            </label>
+
+                            <div class="big red" style="font-size:28px" id="gap">
+                                –
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="muted" style="margin-top:8px">
+
+                        How to build this gap, assuming
+
+                        <span class="pill">
+                            12% p.a. CAGR
+                        </span>
+
+                    </p>
+
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Time horizon
+                                </th>
+
+                                <th>
+                                    Monthly SIP
+                                </th>
+
+                                <th>
+                                    OR one-time Lumpsum
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="planRows"></tbody>
+
+                    </table>
+
+
+                    <p class="muted" style="margin-top:8px">
+
+                        💡 Notice how waiting 5 more years can change
+                        the illustrative monthly contribution required.
+
+                    </p>
+
+                </div>
+
+
+                <!-- CTA -->
+
+                <div class="card cta">
+
+                    <h2>
+                        Want to understand your financial picture better?
+                    </h2>
+
+                    <p>
+                        Our qualified personal finance professionals can
+                        walk you through the numbers.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <!-- DISCLAIMER -->
+
+        <p class="disc">
+
+            This calculator is for awareness and illustration only and is
+            not investment advice. 12% p.a. is an assumed rate, not a
+            guaranteed or promised return. Inflation and taxes are not
+            considered. Mutual Fund investments are subject to market risks;
+            read all scheme related documents carefully.
+
+            Vrisa Artha Mantra Pvt. Ltd. is an AMFI-registered Mutual Fund
+            Distributor (ARN-272960).
+
+        </p>
+
+    </div>
+
+
+    <script>
+
+        // ============================================================
+        // HELPERS
+        // ============================================================
+
+        const $ = id => document.getElementById(id);
+
+
+        const num = value => {
+
+            const n = parseFloat(
+                String(value || "")
+                    .replace(/[^0-9.]/g, "")
+            );
+
+            return isNaN(n) ? 0 : n;
+
+        };
+
+
+        const inr = number => {
+
+            return "₹" +
+                Math.round(number).toLocaleString("en-IN");
+
+        };
+
+
+        function duration(months) {
+
+            if (!isFinite(months))
+                return "Whole life";
+
+            if (months >= 9999)
+                return "Whole life";
+
+            if (months < 1)
+                return Math.round(months * 30) + " days";
+
+            if (months < 12)
+                return months
+                    .toFixed(1)
+                    .replace(".0", "") +
+                    " months";
+
+            const years =
+                Math.floor(months / 12);
+
+            const remainingMonths =
+                Math.round(months % 12);
+
+            return years +
+                (years === 1 ? " year" : " years") +
+                (
+                    remainingMonths
+                        ? " " + remainingMonths + " mo"
+                        : ""
+                );
+
+        }
+
+
+        // ============================================================
+        // ZOHO REDIRECT PREFILL SUPPORT
+        // ============================================================
+
+        /*
+          If you later redirect from Zoho Forms to this page,
+          you can pass:
+      
+          ?name=Rahul
+          &phone=9876543210
+          &email=rahul@example.com
+          &exp=80000
+          &inc=200000
+          &inctype=Monthly
+          &corpus=1500000
+          &guess=6
+        */
+
+        const params =
+            new URLSearchParams(location.search);
+
+
+        const guessMap = {
+
+            "3 months": "3",
+            "6 months": "6",
+            "1 yr": "12",
+            "1 year": "12",
+            "5 yr": "60",
+            "5 years": "60",
+            "10 yr": "120",
+            "10 years": "120",
+            "whole life": "9999"
+
+        };
+
+
+        if (params.get("name"))
+            $("name").value =
+                params.get("name");
+
+
+        if (params.get("phone"))
+            $("phone").value =
+                params.get("phone");
+
+
+        if (params.get("email"))
+            $("email").value =
+                params.get("email");
+
+
+        if (params.get("exp"))
+            $("exp").value =
+                num(params.get("exp"));
+
+
+        if (params.get("inc"))
+            $("inc").value =
+                num(params.get("inc"));
+
+
+        if (params.get("inctype"))
+            $("inctype").value =
+                /annual/i.test(
+                    params.get("inctype")
+                )
+                    ? "Annual"
+                    : "Monthly";
+
+
+        if (params.get("corpus"))
+            $("corpus").value =
+                num(params.get("corpus"));
+
+
+        if (params.get("guess")) {
+
+            const guess =
+                params
+                    .get("guess")
+                    .trim()
+                    .toLowerCase();
+
+            $("guess").value =
+                guessMap[guess] || guess;
+
+        }
+
+
+        // ============================================================
+        // CALCULATOR SETTINGS
+        // ============================================================
+
+        /*
+          12% is ONLY a hypothetical illustration.
+          It is not a guaranteed or expected return.
+        */
+
+        const RATE = 0.12;
+
+        const HORIZONS = [
+            5,
+            10,
+            15,
+            20
+        ];
+
+
+        // ============================================================
+        // FORM SUBMISSION
+        // ============================================================
+
+        async function submitToNetlify() {
+
+            const form =
+                $("financialForm");
+
+            const formData =
+                new FormData(form);
+
+
+            formData.set(
+                "submission_timestamp",
+                new Date().toISOString()
+            );
+
+
+            /*
+              Netlify expects URL-encoded form data
+              for AJAX submission.
+            */
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/x-www-form-urlencoded"
+                            },
+
+                            body:
+                                new URLSearchParams(formData)
+                                    .toString()
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Netlify submission failed."
+                    );
+
+                }
+
+
+                return true;
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Netlify submission error:",
+                    error
+                );
+
+                return false;
+
+            }
+
+        }
+
+
+        // ============================================================
+        // CALCULATE
+        // ============================================================
+
+        async function calc() {
+
+            const exp =
+                num($("exp").value);
+
+
+            const inc =
+                num($("inc").value);
+
+
+            const corpus =
+                num($("corpus").value);
+
+
+            if (!exp) {
+
+                alert(
+                    "Please enter monthly expenses."
+                );
+
+                return false;
+
+            }
+
+
+            if (!inc) {
+
+                alert(
+                    "Please enter income."
+                );
+
+                return false;
+
+            }
+
+
+            // ----------------------------------------------------------
+            // BASIC CALCULATIONS
+            // ----------------------------------------------------------
+
+            const annualIncome =
+                $("inctype").value === "Annual"
+                    ? inc
+                    : inc * 12;
+
+
+            const survivalMonths =
+                corpus / exp;
+
+
+            /*
+              Illustrative family protection calculation:
+        
+              Annual income × 15
+            */
+
+            const cover =
+                annualIncome * 15;
+
+
+            /*
+              Illustrative long-term corpus:
+        
+              25 × annual expenses
+            */
+
+            const target =
+                exp * 12 * 25;
+
+
+            const gap =
+                Math.max(
+                    0,
+                    target - corpus
+                );
+
+
+            // ----------------------------------------------------------
+            // LEAD DISPLAY
+            // ----------------------------------------------------------
+
+            const name =
+                $("name").value.trim();
+
+
+            $("leadName").textContent =
+                name || "–";
+
+
+            $("leadPhone").textContent =
+                $("phone").value.trim() || "–";
+
+
+            $("leadEmail").textContent =
+                $("email").value.trim() || "–";
+
+
+            $("hello").textContent =
+                name
+                    ? name.split(" ")[0] +
+                    ", your survival runway"
+                    : "Your survival runway";
+
+
+            // ----------------------------------------------------------
+            // SURVIVAL
+            // ----------------------------------------------------------
+
+            $("survive").textContent =
+                duration(survivalMonths);
+
+
+            $("realOut").textContent =
+                duration(survivalMonths);
+
+
+            const guessedMonths =
+                num($("guess").value);
+
+
+            $("guessOut").textContent =
+                guessedMonths
+                    ? duration(guessedMonths)
+                    : "–";
+
+
+            const reference =
+                guessedMonths &&
+                    guessedMonths < 9999
+                    ? guessedMonths
+                    : 120;
+
+
+            const barPercentage =
+                Math.min(
+                    100,
+                    (survivalMonths / reference) * 100
+                );
+
+
+            $("barFill").style.width =
+                barPercentage + "%";
+
+
+            $("barFill").style.background =
+                survivalMonths >= reference
+                    ? "var(--green)"
+                    : "var(--red)";
+
+
+            $("barNote").textContent =
+                guessedMonths
+                    ? (
+                        survivalMonths >= guessedMonths
+                            ? "Your current savings match or exceed your stated survival estimate."
+                            : "Your current savings run out before your stated survival estimate."
+                    )
+                    : "";
+
+
+            // ----------------------------------------------------------
+            // PROTECTION
+            // ----------------------------------------------------------
+
+            $("cover").textContent =
+                inr(cover);
+
+
+            // ----------------------------------------------------------
+            // CORPUS
+            // ----------------------------------------------------------
+
+            $("target").textContent =
+                inr(target);
+
+
+            $("gap").textContent =
+                gap
+                    ? inr(gap)
+                    : "Already covered ✓";
+
+
+            // ----------------------------------------------------------
+            // SIP + LUMPSUM
+            // ----------------------------------------------------------
+
+            const monthlyRate =
+                RATE / 12;
+
+
+            const plans =
+                HORIZONS.map(years => {
+
+                    const months =
+                        years * 12;
+
+
+                    /*
+                      Monthly contribution illustration
+                      using monthly compounding.
+            
+                      This is a mathematical illustration only.
+                    */
+
+                    const sip =
+                        gap /
+                        (
+                            (
+                                Math.pow(
+                                    1 + monthlyRate,
+                                    months
+                                ) - 1
+                            ) /
+                            monthlyRate
+                        );
+
+
+                    /*
+                      One-time amount illustration.
+                    */
+
+                    const lump =
+                        gap /
+                        Math.pow(
+                            1 + RATE,
+                            years
+                        );
+
+
+                    return {
+
+                        years: years,
+
+                        sip: sip,
+
+                        lump: lump
+
+                    };
+
+                });
+
+
+            $("planRows").innerHTML =
+                plans.map(plan => {
+
+                    return `
+          <tr>
+            <td>
+              ${plan.years} years
+            </td>
+
+            <td>
+              <b>
+                ${inr(plan.sip)}
+              </b>
+            </td>
+
+            <td>
+              ${inr(plan.lump)}
+            </td>
+          </tr>
+        `;
+
+                }).join("");
+
+
+            // ----------------------------------------------------------
+            // PUT CALCULATED VALUES INTO HIDDEN NETLIFY FIELDS
+            // ----------------------------------------------------------
+
+            $("actualSurvival").value =
+                survivalMonths.toFixed(2);
+
+
+            $("protectionCover").value =
+                Math.round(cover);
+
+
+            $("targetCorpus").value =
+                Math.round(target);
+
+
+            $("gapValue").value =
+                Math.round(gap);
+
+
+            $("sip5").value =
+                Math.round(plans[0].sip);
+
+
+            $("sip10").value =
+                Math.round(plans[1].sip);
+
+
+            $("sip15").value =
+                Math.round(plans[2].sip);
+
+
+            $("sip20").value =
+                Math.round(plans[3].sip);
+
+
+            $("lump5").value =
+                Math.round(plans[0].lump);
+
+
+            $("lump10").value =
+                Math.round(plans[1].lump);
+
+
+            $("lump15").value =
+                Math.round(plans[2].lump);
+
+
+            $("lump20").value =
+                Math.round(plans[3].lump);
+
+
+            $("submissionTimestamp").value =
+                new Date().toISOString();
+
+
+            // ----------------------------------------------------------
+            // SHOW RESULTS IMMEDIATELY
+            // ----------------------------------------------------------
+
+            $("results")
+                .classList
+                .remove("hide");
+
+
+            $("results")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+
+            // ----------------------------------------------------------
+            // SUBMIT TO NETLIFY
+            // ----------------------------------------------------------
+
+            const button =
+                $("calculateButton");
+
+
+            button.disabled = true;
+
+            button.textContent =
+                "Saving your results...";
+
+
+            const submitted =
+                await submitToNetlify();
+
+
+            button.disabled = false;
+
+            button.textContent =
+                "Show my reality check";
+
+
+            // ----------------------------------------------------------
+            // STATUS MESSAGE
+            // ----------------------------------------------------------
+
+            const message =
+                $("submitMessage");
+
+
+            if (submitted) {
+
+                message.className =
+                    "success";
+
+
+                message.textContent =
+                    "Your financial snapshot has been recorded successfully.";
+
+            }
+            else {
+
+                message.className =
+                    "error";
+
+
+                message.textContent =
+                    "Your calculation is ready, but we could not save the form response. Please inform the team.";
+
+            }
+
+            return submitted;
+
+        }
+
+
+        // ============================================================
+        // FORM SUBMIT EVENT
+        // ============================================================
+
+        $("financialForm")
+            .addEventListener(
+                "submit",
+                async function (event) {
+
+                    event.preventDefault();
+
+                    await calc();
+
+                }
+            );
+
+
+    </script>
+
+</body>
+
+</html>
