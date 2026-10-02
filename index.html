@@ -1043,57 +1043,48 @@
 
         async function submitToNetlify() {
 
-            const form =
-                $("financialForm");
+            const form = $("financialForm");
 
-            const formData =
-                new FormData(form);
+            const formData = new FormData(form);
 
+            formData.set(
+                "form-name",
+                "financial-snapshot"
+            );
 
             formData.set(
                 "submission_timestamp",
                 new Date().toISOString()
             );
 
-
-            /*
-              Netlify expects URL-encoded form data
-              for AJAX submission.
-            */
-
             try {
 
-                const response =
-                    await fetch(
-                        "/",
-                        {
-                            method: "POST",
+                const response = await fetch(
+                    "/",
+                    {
+                        method: "POST",
 
-                            headers: {
-                                "Content-Type":
-                                    "application/x-www-form-urlencoded"
-                            },
+                        headers: {
+                            "Content-Type":
+                                "application/x-www-form-urlencoded"
+                        },
 
-                            body:
-                                new URLSearchParams(formData)
-                                    .toString()
-                        }
-                    );
+                        body: new URLSearchParams(formData).toString()
+                    }
+                );
 
+                console.log(
+                    "Netlify response:",
+                    response.status
+                );
 
-                if (!response.ok) {
+                // Netlify has received the POST request.
+                // Don't treat a redirect/non-2xx response as a
+                // calculator failure.
+                return response.status >= 200 &&
+                    response.status < 400;
 
-                    throw new Error(
-                        "Netlify submission failed."
-                    );
-
-                }
-
-
-                return true;
-
-            }
-            catch (error) {
+            } catch (error) {
 
                 console.error(
                     "Netlify submission error:",
@@ -1101,11 +1092,8 @@
                 );
 
                 return false;
-
             }
-
         }
-
 
         // ============================================================
         // CALCULATE
